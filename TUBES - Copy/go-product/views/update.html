@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600&family=Viga&display=swap" rel="stylesheet">
+    <title>Form Produk</title>
+        <!-- CSS -->
+        <style>
+            .btn-primary {
+                background-color: #000080;
+                border-color: #000080;
+                font-size: 0.8rem;
+            }
+            .btn-primary:hover {
+                background-color: #000080;
+                border-color: #000080;
+                color: #ef8b10;
+                font-family: 'Poppins', sans-serif;
+            }
+            .navbar {
+                background-color: #000080;
+                padding: 1rem 0;
+            }
+            .navbar-brand {
+                color: #ef8b10;
+                font-family: 'Viga', sans-serif;
+                font-size: 1.5rem;
+            }
+            .navbar-brand:hover{
+                color:#eaeaea;
+            }
+            body{
+                font-family: 'Poppins', sans-serif;
+            }
+            .container {
+                margin-top: 2rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                color: #04064c;
+                margin-bottom: 1.5rem;
+            }
+        </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">T O K O &nbsp;&nbsp; D N K</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-between mb-4">
+            <h3>Produk</h3>
+        </div>
+
+        <form action="/product/update?id={{ .product.Id }}" method="POST">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama Produk</label>
+                <input type="text" id="nama" name="nama" class="form-control" value="{{ .product.Nama }}" />
+            </div>
+            <div class="mb-3">
+                <label for="harga" class="form-label">Harga</label>
+                <input type="text" id="harga" name="harga" class="form-control" value="{{ .product.Harga }}" />
+            </div>
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label">Deskripsi</label>
+                <textarea id="deskripsi" name="deskripsi" class="form-control">{{ .product.Deskripsi }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+        </form>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

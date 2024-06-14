@@ -1,0 +1,148 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Produk</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600&family=Viga&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .navbar {
+            background-color: #000080;
+            padding: 1rem 0;
+        }
+        .navbar-brand {
+            color: #ef8b10;
+            font-family: 'Viga', sans-serif;
+            font-size: 1.5rem;
+        }
+        .container {
+            margin-top: 2rem;
+        }
+        h3 {
+            font-size: 2rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #04064c;
+            margin-bottom: 1.5rem;
+        }
+        .table {
+            font-size: 1rem;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #000080;
+            border-color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            font-size: 0.8rem;
+        }
+        .btn-primary:hover {
+            border-color: #000080;
+            background-color: #000080;
+            color: #ef8b10;
+        }
+        .btn-secondary {
+            background-color: #767676;
+            font-size: 0.7rem;
+        }
+        .btn-secondary:hover {
+            border-color: #000000;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">T O K O &nbsp;&nbsp; D N K</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Daftar Produk</h2>
+
+        <div id="productList">
+            <!-- Tempat untuk menampilkan produk jika menggunakan HTML -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Products}}
+                    <tr>
+                        <td>{{.ID}}</td>
+                        <td>{{.Nama}}</td>
+                        <td>{{.Harga}}</td>
+                        <td>{{.Deskripsi}}</td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- JavaScript untuk memuat data jika menerima JSON -->
+        <script>
+            fetch('/product', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(products => {
+                let productListHTML = '';
+                products.forEach(product => {
+                    productListHTML += `
+                        <tr>
+                            <td>${product.id}</td>
+                            <td>${product.nama}</td>
+                            <td>${product.harga}</td>
+                            <td>${product.deskripsi}</td>
+                        </tr>
+                    `;
+                });
+                document.getElementById('productList').innerHTML = `
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama</th>
+                                <th>Harga</th>
+                                <th>Deskripsi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${productListHTML}
+                        </tbody>
+                    </table>
+                `;
+            })
+            .catch(error => console.error('Error fetching products:', error));
+        </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    </div>
+</body>
+</html>

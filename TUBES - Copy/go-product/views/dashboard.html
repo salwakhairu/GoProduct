@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TOKO DNK</title>
+    <!-- MYFONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600&family=Viga&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+        }
+        .navbar {
+            background-color: #000080;
+        }
+        .navbar-brand {
+            color: #ef8b10;
+            font-family: 'Viga', sans-serif;
+            font-size: 2rem;
+        }
+        .navbar-brand:hover{
+            color:#eaeaea;
+        }
+        .links {
+            margin-top: 5px;
+            display: flex; 
+            justify-content: space-around; 
+            font-size: 0.8rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1px 5px; 
+            transition: color 0.3s; 
+            font-weight: bold;
+        }
+
+        .links a:hover {
+            color: #ef8b10; 
+        }
+
+        .navbar a[href*="wa.me"] {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .navbar a:hover{
+            color: #ef8b10; 
+        }
+
+        .navbar .navbar-nav a {
+        color: white;
+        display: inline-block;
+        font-size: 0.7rem;
+        margin: 0 1rem;
+        }
+
+        .navbar .navbar-nav a:hover {
+        color: #ef8b10;
+        }
+
+        .navbar .navbar-nav a::after {
+        content: "";
+        display: block;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.1rem solid var(--primary);
+        transform: scaleX(0);
+        transition: 0.2s linear;
+        }
+
+        .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.5);
+        }
+
+        .navbar .navbar-extra a {
+        color: white;
+        margin: 0 0.5rem;
+        }
+
+        .navbar .navbar-extra a:hover {
+        color: var(--primary);
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            font-weight: 520;
+            transition: color 0.2s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ef8b10;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .layar01 {
+        background-color: var(--bg);
+        height: 50rem;
+        padding: 60px 0;
+        }
+        .layar01 .layar-text {
+        padding: 3rem 3rem;
+        text-align: center;
+        margin-top: 2rem;
+        color: rgb(4, 20, 110);
+        font-family: "Poppins", sans-serif;
+        }
+        .layar-text h1 {
+        font-size: 30px;
+        text-align: center;
+        }
+        .layar-text p {
+        color: #3f4254;
+        font-size: 15px;
+        text-align: center;
+        }
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section-border {
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .bg-pattern {
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini.png');
+        }
+        .btn-primary {
+            background-color: #000080;
+            border-color: #000080;
+            transition: background-color 0.3s, border-color 0.3s;
+            margin-right: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #000080;
+            border-color: #000080;
+        }
+        .btn-secondary {
+            background-color: #f39c12;
+            border-color: #f39c12;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #e67e22;
+            border-color: #e67e22;
+        }
+        /*FOOTER*/
+        footer {
+            background-color: var(--primary);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+        footer .social {
+            padding: 1rem 0;
+        }
+
+        footer .social a {
+            color: rgb(203, 162, 51);
+            margin: 1rem;
+            padding: 0.7rem 1rem;
+        }
+
+        footer .social a:hover {
+            color: #ffffff;
+            margin: 1rem;
+        }
+
+        footer .links a {
+            color: var(--bg);
+            margin-bottom: 15px;
+        }
+
+        footer .links a:hover {
+            color: #e67e22;
+        }
+
+        footer .credit {
+            font-size: 0.8rem;
+        }
+
+        footer .credit p {
+            color: var(--bg);
+            font-weight: 400;
+        }
+
+        footer .credit a {
+            color: var(--bg);
+            font-weight: 700;
+        }
+        footer {
+            background-color: #000080;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">T O K O &nbsp;&nbsp; D N K</a>
+            <div class="links">
+                <a href="#Unggulan">Produk Unggulan</a>
+                <a href="#Layanan">Layanan Kami</a>
+                <a href="#Ulasan">Ulasan Pelanggan</a>
+                <a href="#Statistik">Statistik Toko</a>
+            </div>
+            <a href="https://wa.me/6289676563902/" target="_blank"><i data-feather="phone"></i></a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="#" onclick="redirectToDashboard()">Dashboard</a>
+                <a class="nav-link" href="#" onclick="redirectToLogin()">Login</a>
+                <a class="nav-link" href="#" onclick="redirectToProductList()">Lihat Produk</a>
+                <a class="nav-link" href="#" onclick="redirectToSignup()">Log Out</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+<div class="container my-5">
+    <div class="layar-01">
+        <div class="layar-text">
+        <h1>Selamat Datang di Dashboard TOKO DNK</h1>
+        <h1>Agen Toko Terpercaya, Terjamin, dan Amanah</h1>
+        <p class="text-center">Di sini Anda dapat melihat informasi terbaru tentang toko kami, produk, dan layanan yang kami tawarkan.</p>
+        </div>
+        <!-- Carousel -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="pict/Pict01.jpeg" class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="pict/Pict02.jpg" class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="pict/Pict03.jpg" class="d-block w-100" alt="Slide 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+        <!-- Produk Unggulan -->
+        <div class="section section-border bg-pattern">
+            <section id="Unggulan" class="Unggulan">
+            <h2 class="section-title">Produk Unggulan</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card">
+                        <img src="pict/Pict02.jpg" class="card-img-top" alt="Produk 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Produk 1</h5>
+                            <p class="card-text">Deskripsi singkat produk 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <img src="pict/Pict01.jpeg" class="card-img-top" alt="Produk 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Produk 2</h5>
+                            <p class="card-text">Deskripsi singkat produk 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <img src="pict/Pict01.jpeg" class="card-img-top" alt="Produk 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Produk 3</h5>
+                            <p class="card-text">Deskripsi singkat produk 3.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Layanan Kami -->
+    <section id="Layanan" class="Layanan">
+        <div class="section section-border">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Layanan 1</h5>
+                            <p class="card-text">Deskripsi singkat layanan 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Layanan 2</h5>
+                            <p class="card-text">Deskripsi singkat layanan 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Layanan 3</h5>
+                            <p class="card-text">Deskripsi singkat layanan 3.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Ulasan Pelanggan -->
+    <section id="Ulasan" class="Ulasan"></section>
+        <div class="section section-border bg-pattern">
+            <h2 class="section-title">Ulasan Pelanggan</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pelanggan 1</h5>
+                            <p class="card-text">"Ulasan dari pelanggan 1."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pelanggan 2</h5>
+                            <p class="card-text">"Ulasan dari pelanggan 2."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pelanggan 3</h5>
+                            <p class="card-text">"Ulasan dari pelanggan 3."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Statistik Toko -->
+    <section id="Statistik" class="Statistik">
+        <div class="section section-border bg-light">
+            <h2 class="section-title">Statistik Toko</h2>
+            <div class="row">
+                <div class="col-md-4 text-center" data-aos="fade-up">
+                    <h3>10,000++</h3>
+                    <p>Ulasan</p>
+                </div>
+                <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h3>500++</h3>
+                    <p>Produk</p>
+                </div>
+                <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3>20++</h3>
+                    <p>Layanan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <!-- Tombol Lihat Produk -->
+        <div class="section text-center section-border bg-pattern">
+            <h2 class="section-title">Lihat Produk?</h2>
+            <button onclick="redirectToProductList()" class="btn btn-primary btn-lg">Tekan ini</button>
+            <button onclick="redirectToCreateProduct()" class="btn btn-secondary btn-lg">Buat Produk</button>
+        </div>
+    </div>
+
+    <!--Footter START-->
+    <footer id="Contact">
+        <div class="social">
+          <a href="#"><i data-feather="instagram"></i></a>
+          <a href="#"><i data-feather="twitter"></i></a>
+          <a href="#"><i data-feather="facebook"></i></a>
+          <a href="#"><i data-feather="linkedin"></i></a>
+        </div>
+        <div class="links">
+          <a href="#Unggulan">Produk Unggulan</a>
+          <a href="#Layanan">Layanan Kami</a>
+          <a href="#Ulasan">Ulasan Pelanggan</a>
+          <a href="#Statistik">Statistik Toko</a>
+        </div>
+        <div class="credit">
+          <p>Create by <a href="">Toko DNK.</a> | &copy; 2024.</p>
+        </div>
+      </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlIC3RUrEmXPjVTy0GA6CAw2l84rBRsPZpO6OmVpHoqClw9BYaAdhCM1p9Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGuhuD20PHaySAe2xh2WLOoCIp8jS2f4G6BzB6YAMFLjl8giVfiYoxT+gAN" crossorigin="anonymous"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- Feather Icons -->
+    <script>
+        feather.replace();
+    </script>
+
+    <!-- Custom Toggle Script -->
+    <script>
+        // Toggle class active
+        const navbarNav = document.querySelector(".navbar-nav");
+        // Aksi
+        document.getElementById("hamburger-menu").onclick = () => {
+            navbarNav.classList.toggle("active");
+        };
+
+        // Aksi Keluar
+        const hamburger = document.getElementById("hamburger-menu");
+        document.addEventListener("click", function (e) {
+            if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+                navbarNav.classList.remove("active");
+            }
+        });
+
+        // Redirect to pages
+        function redirectToDashboard() {
+            window.location.href = "/dashboard";
+        }
+
+        function redirectToLogin() {
+            window.location.href = "/login";
+        }
+
+        function redirectToProductList() {
+            window.location.href = "/product";
+        }
+
+        function redirectToCreateProduct() {
+            window.location.href = "/product/create";
+        }
+
+        function redirectToUpdateProduct(id) {
+            window.location.href = "/product/update?id=" + id;
+        }
+
+        function redirectToDeleteProduct(id) {
+            window.location.href = "/product/delete?id=" + id;
+        }
+
+        // Function to logout
+    function logout() {
+        // Lakukan proses logout di sini
+        alert("Anda telah logout!");
+        // Redirect ke halaman signup setelah logout
+        redirectToSignup();
+    }
+
+    // Redirect to signup page
+    function redirectToSignup() {
+        window.location.href = "/signup";
+    }
+    </script>
+    <!-- JS AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!--My JS-->
+    <script src="script.js"></script>
+</body>
+</html>
